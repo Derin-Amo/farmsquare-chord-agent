@@ -1,0 +1,50 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Farmsquare Simulated Google Sheets API",
+    "description": "Connects Chord to Google Sheets for privacy-safe live product stock and simulated abandoned web orders.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://script.google.com/macros/s/REPLACE_WITH_YOUR_SCRIPT_ID",
+      "description": "Google Apps Script Web App Endpoint"
+    }
+  ],
+  "paths": {
+    "/exec": {
+      "get": {
+        "summary": "Query Products or Abandoned Orders from Google Sheets",
+        "description": "Use action=search_products to look up live stock/prices, or action=get_abandoned_orders to retrieve pending checkouts for follow-up.",
+        "operationId": "queryGoogleSheet",
+        "parameters": [
+          {
+            "name": "action",
+            "in": "query",
+            "required": true,
+            "description": "Action to perform: 'search_products' or 'get_abandoned_orders'",
+            "schema": {
+              "type": "string",
+              "enum": ["search_products", "get_abandoned_orders"],
+              "default": "search_products"
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "description": "Search term for products (e.g. 'atrazine', 'force up', 'cobra')",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "JSON data from the active Google Sheet tab"
+          }
+        }
+      }
+    }
+  }
+}
