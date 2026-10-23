@@ -1,16 +1,4 @@
-/**
- * Google Apps Script for Farmsquare Chord Agent.
- * Turns your Google Sheet into a live REST API for Products and Abandoned Orders.
- * 
- * Instructions:
- * 1. Open your Google Sheet.
- * 2. Click Extensions > Apps Script.
- * 3. Delete everything and paste this code.
- * 4. Click Deploy > New deployment > Web app.
- *    - Execute as: Me
- *    - Who has access: Anyone
- * 5. Copy the Web App URL (https://script.google.com/macros/s/.../exec).
- */
+
 
 function doGet(e) {
   var action = (e && e.parameter && e.parameter.action) ? e.parameter.action : "search_products";
