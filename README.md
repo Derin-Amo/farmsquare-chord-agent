@@ -51,7 +51,7 @@ It turns informal WhatsApp messages (including pidgin, local trade slang, and pa
 
 | Failure Scenario | Root Cause | Agent Behavior & Workaround |
 |---|---|---|
-| **Chord ₦10k Action Threshold Intercept** | Order exceeds ₦10,000 (e.g. ₦66,000 carton) and Chord blocks tool execution with `amount_kobo gt 1000000.0`. | Skill catches the safety intercept and immediately presents First Bank corporate account details (`2036041820`) plus human teammate transfer option. |
+| **Chord ₦10k Action Threshold Intercept** | Order exceeds ₦10,000 (e.g. ₦66,000 carton) and Chord blocks tool execution with `amount_kobo gt 1000000.0`. | Skill catches the safety intercept and immediately presents second Bank corporate account details (`1234567890`) plus human teammate transfer option. |
 | **Item Out of Stock** | Database returns `in_stock: false` or `stock_quantity: 0` (e.g., Knapsack Sprayer). | Agent informs buyer politely, states warehouse restocking ETA, and suggests available alternatives or waitlisting. |
 | **Non-Selective Herbicide on Growing Crops** | Farmer asks for Glyphosate/Force Up to spray over growing maize or tomatoes. | Agronomic refusal triggers: agent warns that non-selective chemicals kill standing crops, recommends selective Atrazine 500 SC, and offers human agronomist handoff. |
 | **Tool Server / Network Latency** | Paystack API timeout or unreachable tool server. | Agent apologizes for the network delay, provides manual customer care line (`08031234567`), and outputs bank transfer details. |
@@ -206,9 +206,9 @@ Amaka:
 Because your order is ₦66,000, our automated payment gateway has flagged this high-value transaction for standard confirmation.
 
 You can complete your payment immediately via direct corporate transfer:
-- Bank: First Bank of Nigeria
+- Bank: second Bank of Nigeria
 - Account Name: Farmsquare Agricultural Company Limited
-- Account Number: 2036041820
+- Account Number: 1234567890
 - Amount: ₦66,000
 
 Alternatively, reply "AGENT" and I can hand this over to a human teammate to release an authorized Paystack link. Once paid, send your receipt reference here for instant verification!
@@ -239,10 +239,10 @@ In compliance with TSG Labs recruitment guidelines, all AI assistance and manual
 - **Claude / Peer Architectural Review**:
   - Provided feedback on Model Context Protocol (MCP) Streamable HTTP compliance, recommended eliminating duplicate files (`skills.md` and Python mirrors), and guided the alignment between `SKILL.md` and the problem statement scope.
 - **Human Engineering & Evaluation (Derin Amole)**:
-  - Formulated the core product strategy and candidate role focus (Technical Product Management & Growth).
+  - Formulated the core product strategy.
   - Designed the agronomic refusal safety guardrails to protect Farmsquare from crop liability.
   - Implemented the zero-PII Google Sheets data store and Google Apps Script Web App.
-  - Investigated and documented the Paystack ₦10,000 action threshold intercept and developed the First Bank fallback workflow.
+  - Investigated and documented the Paystack ₦10,000 action threshold intercept and developed the second Bank fallback workflow.
   - Tested and validated all tool invocations directly in Chord and the WhatsApp simulator.
 
 ---
@@ -255,14 +255,3 @@ In compliance with TSG Labs recruitment guidelines, all AI assistance and manual
 4. **Waybill Logistics**: Waybill fees vary by motor park driver and vehicle type. The agent quotes standard regional bands and captures the receiving motor park; final manifest fees are confirmed by warehouse dispatch before departure.
 5. **Bank Transfer Receipt Verification**: The agent prompts for transaction reference numbers rather than performing automated computer vision / OCR on bank transfer screenshot images.
 
----
-
-## Submission Documents
-
-All required recruitment deliverables are organized in the [`submission/`](submission/) directory:
-
-- [`submission/01_role_and_problem_statement.md`](submission/01_role_and_problem_statement.md) — Role preferences & exactly 4-sentence problem statement.
-- [`submission/04_screen_recording_script.md`](submission/04_screen_recording_script.md) — Timed 2:50 screen recording script and simulator walkthrough.
-- [`submission/05_deployment_field_notes.md`](submission/05_deployment_field_notes.md) — Three technical field incidents (Paystack threshold intercept, PII isolation, Chord parameter semantics).
-- [`submission/06_go_live_note.md`](submission/06_go_live_note.md) — Non-technical executive handover note for Farmsquare leadership.
-- [`submission/FULL_SUBMISSION_PACKAGE.md`](submission/FULL_SUBMISSION_PACKAGE.md) — Consolidated submission document.
