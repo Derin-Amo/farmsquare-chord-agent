@@ -61,10 +61,11 @@ It turns informal WhatsApp messages (including pidgin, local trade slang and pac
 | **Live payment keys and production customer data** | Everything runs in sandbox / test mode with synthetic records. |
 
 ---
-**How success would be measured**
-Payment completion rate: orders paid divided by orders quoted.
-Recovery rate: unpaid orders that were paid after the reminder.
-Time from first message to payment link.
+## How success would be measured
+
+- **Payment completion rate:** orders paid divided by orders quoted.
+- **Recovery rate:** unpaid orders that were paid after the reminder.
+- **Time to payment link:** minutes from the buyer's first message to a payment link being sent.
 
 The demo uses made-up data, so I have no real results to report. These are the numbers I would track from the first week of live use.
 ## Architecture
